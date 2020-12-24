@@ -10,20 +10,17 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[];
   inputTodo:string = "";
+  cats = ['All', 'Completed', 'Uncompleted'];
+  isHide = false;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.todos = [
-      {
-        content: 'First todo',
-        completed: false
-      },
-      {
-        content: 'Second todo',
-        completed: false
-      }
-    ]
+    this.todos = []
+  }
+
+  noTodos() {
+    return this.todos.length === 0;
   }
 
   toggleDone(idx:number) {
@@ -48,4 +45,12 @@ export class TodosComponent implements OnInit {
     this.inputTodo = "";
   }
 
+  filterTodos() {
+    this.isHide = true;
+  };
+
+  showAll() {
+    this.isHide = false
+  }
+  
 }

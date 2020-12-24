@@ -4,11 +4,19 @@
         placeholder="Add todo..."
         class="todo-input"
         [(ngModel)]="inputTodo" />
-        <input type="submit" value="Add Todo" class="todo-submit" />
+        <input type="submit" value="Add" class="todo-submit" />
     </form>
-    <div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}" >
+    <div class="quantity">
+        {{todos.length}} Todos added.
+    </div> 
+    <div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed ? 'done' : !todo.completed && isHide ? 'hide-todo' : 'show-todo') }}" (click)="toggleDone(i)" >
         <div class="id">{{i}}</div>
-        <div class="content" (click)="toggleDone(i)">{{todo.content}}</div>
-        <button class="delete" (click)="deleteTodo(i)">Remove</button>
+        <div class="content">{{todo.content}}</div>
+        <button (click)="deleteTodo(i)" class="delete">X</button>
     </div>
+    <div class="btns-container">
+        <button class="category-btn" (click)="showAll()">All</button>
+        <button class="category-btn" (click)="filterTodos()">Completed</button>
+    </div>
+    <div class="no-todos-box" *ngIf="noTodos()">No todos added yet.</div>
 </div>
