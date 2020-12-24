@@ -1,0 +1,12 @@
+<div *ngFor="let todo of data; let i = index;" class="todo {{ (todo.completed ? 'done' : !todo.completed && isHide ? 'hide-todo' : 'show-todo') }}" (click)="toggleDone(i)" >
+    <div class="id">{{i}}</div>
+    <div class="content">{{todo.content}}</div>
+    <button (click)="deleteTodo(i)" class="delete"><i class="fas fa-window-close"></i></button>
+</div>
+<div class="btns-container">
+    <button class="category-btn" (click)="showAll()">All</button>
+    <button class="category-btn" (click)="filterTodos()">Completed</button>
+</div>
+<div class="quantity">
+    {{data.length}} Todos added.
+</div>

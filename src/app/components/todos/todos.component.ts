@@ -7,7 +7,7 @@ import { Todo } from './../../modules/Todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-
+  
   todos: Todo[];
   inputTodo:string = "";
   cats = ['All', 'Completed', 'Uncompleted'];
@@ -23,18 +23,18 @@ export class TodosComponent implements OnInit {
     return this.todos.length === 0;
   }
 
-  toggleDone(idx:number) {
-    this.todos.map((value, index) => {
-      if(index === idx) {
-        value.completed = !value.completed
-      }
-      return value
-    });
-  }
+  // toggleDone(idx:number) {
+  //   this.todos.map((value, index) => {
+  //     if(index === idx) {
+  //       value.completed = !value.completed
+  //     }
+  //     return value
+  //   });
+  // }
 
-  deleteTodo (idx:number) {
-    this.todos = this.todos.filter((value, index) => index !== idx);
-  }
+  // deleteTodo (idx:number) {
+  //   this.todos = this.todos.filter((value, index) => index !== idx);
+  // }
 
   addTodo() {
     this.todos.push({
@@ -45,12 +45,13 @@ export class TodosComponent implements OnInit {
     this.inputTodo = "";
   }
 
-  filterTodos() {
-    this.isHide = true;
-  };
+  // filterTodos() {
+  //   this.isHide = true;
+  // };
 
-  showAll() {
-    this.isHide = false
-  }
+  // showAll() {
+  //   this.isHide = false
+  // }
   
 }
+
